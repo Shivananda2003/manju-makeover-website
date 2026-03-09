@@ -1,71 +1,308 @@
 import { Link } from 'react-router-dom';
 
 function Home() {
+  const services = [
+    {
+      title: 'Bridal Artistry',
+      description:
+        'Tailor-made bridal looks with flawless, photo-ready makeup and elegant styling for your big day.',
+      tag: 'Bridal',
+    },
+    {
+      title: 'Occasion Glam',
+      description:
+        'Soft glam to full drama for sangeet, receptions, parties, and special evenings out.',
+      tag: 'Party',
+    },
+    {
+      title: 'Hair & Skin Rituals',
+      description:
+        'Nourishing facials, indulgent hair spa, and treatments that leave you glowing.',
+      tag: 'Care',
+    },
+  ];
+
+  const galleryPreview = [
+    'Bridal glow',
+    'Soft glam',
+    'Elegant updo',
+    'Festive look',
+  ];
+
   return (
-    <>
-      <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-accent-rose/20">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23c9a962\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
-        <div className="relative max-w-4xl mx-auto px-4 text-center">
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-            Welcome to <span className="text-primary-600">Manju's Makeover</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Where beauty meets care. Experience expert makeup, hair, and skin treatments in a relaxing environment.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/booking"
-              className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition"
-            >
-              Book an Appointment
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center px-6 py-3 border-2 border-primary-600 text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition"
-            >
-              View Services
-            </Link>
+    <div className="bg-black text-white">
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(201,169,98,0.35),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(201,169,98,0.12),_transparent_55%)]" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-accent-gold/80 mb-4">
+              Luxury Beauty Studio
+            </p>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight mb-5">
+              Manju&apos;s{' '}
+              <span className="text-accent-gold">Makeover</span>
+            </h1>
+            <p className="text-sm sm:text-base text-gray-300 mb-8 max-w-xl">
+              An intimate, luxury beauty parlour where every detail is curated for you —
+              from bridal transformations to effortless everyday elegance.
+            </p>
+            <div className="flex flex-wrap gap-4 items-center">
+              <Link
+                to="/booking"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-accent-gold text-black font-medium shadow-[0_0_0_1px_rgba(201,169,98,0.4)] hover:brightness-110 transition"
+              >
+                Book your appointment
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-accent-gold/60 text-accent-gold text-sm font-medium hover:bg-white/5 transition"
+              >
+                Explore services
+              </Link>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-6 text-xs text-gray-400">
+              <div>
+                <p className="font-semibold text-accent-gold text-sm">Bridal & Occasion</p>
+                <p>Soft glam, HD makeup, long-wear looks</p>
+              </div>
+              <div>
+                <p className="font-semibold text-accent-gold text-sm">Hair & Skin</p>
+                <p>Hair styling, facials, rituals & care</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-8 bg-gradient-to-tr from-accent-gold/10 via-transparent to-accent-gold/5 rounded-3xl blur-2xl pointer-events-none" />
+            <div className="relative grid grid-cols-2 gap-4 sm:gap-5">
+              <div className="space-y-4 sm:space-y-5">
+                <div className="h-40 sm:h-48 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-end p-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
+                      Signature
+                    </p>
+                    <p className="font-display text-lg">Bridal glow</p>
+                  </div>
+                </div>
+                <div className="h-32 sm:h-40 rounded-3xl bg-gradient-to-br from-accent-gold/20 to-accent-gold/5 border border-accent-gold/30 flex items-end p-4">
+                  <p className="text-sm text-black font-medium">
+                    Curated luxury in every detail.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4 sm:space-y-5 translate-y-6 sm:translate-y-10">
+                <div className="h-32 sm:h-40 rounded-3xl bg-gradient-to-br from-white/15 to-white/5 border border-white/10 flex items-end p-4">
+                  <p className="text-sm">
+                    Soft glam, luminous skin, and polished hairstyles — crafted just for you.
+                  </p>
+                </div>
+                <div className="h-40 sm:h-48 rounded-3xl bg-gradient-to-tr from-black to-neutral-900 border border-white/10 flex items-center justify-center">
+                  <div className="text-center space-y-1">
+                    <p className="text-xs uppercase tracking-[0.25em] text-accent-gold/80">
+                      Since
+                    </p>
+                    <p className="font-display text-2xl text-accent-gold">
+                      MM
+                    </p>
+                    <p className="text-[11px] text-gray-400">
+                      Manju&apos;s Makeover Studio
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <h2 className="font-display text-3xl font-bold text-center text-gray-900 mb-4">Why Choose Us</h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            We bring years of experience and a passion for making you look and feel your best.
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: 'Expert Stylists', desc: 'Trained professionals with expertise in bridal, party, and everyday looks.' },
-              { title: 'Quality Products', desc: 'We use trusted, skin-friendly products for lasting results.' },
-              { title: 'Relaxing Ambience', desc: 'A clean, comfortable space so you can unwind while we pamper you.' },
-            ].map((item) => (
-              <div key={item.title} className="p-6 rounded-xl bg-primary-50/50 border border-primary-100 text-center">
-                <h3 className="font-display text-xl font-semibold text-primary-800 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+      {/* About */}
+      <section className="border-y border-white/5 bg-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 grid md:grid-cols-[1.2fr,1fr] gap-10">
+          <div>
+            <h2 className="font-display text-2xl sm:text-3xl mb-4">
+              A luxury beauty parlour with a personal touch.
+            </h2>
+            <p className="text-sm sm:text-base text-gray-300 mb-4">
+              At Manju&apos;s Makeover, we believe beauty should feel effortless yet
+              unforgettable. Every session is one-on-one, customised, and designed to
+              flatter your unique features, outfits, and occasion.
+            </p>
+            <p className="text-sm sm:text-base text-gray-300 mb-6">
+              Whether it&apos;s your wedding day, a family celebration, or a quiet
+              self-care ritual, we bring together premium products, expert artistry,
+              and a calm, intimate space.
+            </p>
+            <div className="flex flex-wrap gap-6 text-xs text-gray-300">
+              <div>
+                <p className="font-semibold text-accent-gold text-sm">Specialities</p>
+                <p>Bridal makeup • HD & airbrush • Occasion glam</p>
+              </div>
+              <div>
+                <p className="font-semibold text-accent-gold text-sm">Location</p>
+                <p>Update your studio address here.</p>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-accent-gold/25 bg-gradient-to-br from-neutral-900 to-black p-5">
+              <p className="text-xs uppercase tracking-[0.25em] text-accent-gold/80 mb-2">
+                Studio Notes
+              </p>
+              <p className="text-sm text-gray-200">
+                Soft lighting, comfortable seating, and curated music — the studio is
+                designed to make you feel calm, cared for, and camera-ready.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-medium text-white">
+                  Prefer WhatsApp for bookings?
+                </p>
+                <p className="text-xs text-gray-300">
+                  Quick confirmations, time slots, and look discussions.
+                </p>
+              </div>
+              <a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full px-4 py-2 bg-accent-gold text-black text-xs font-semibold hover:brightness-110 transition"
+              >
+                Chat now
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services preview */}
+      <section className="bg-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-accent-gold/80 mb-2">
+                Our Services
+              </p>
+              <h2 className="font-display text-2xl sm:text-3xl">
+                Curated treatments & signature looks.
+              </h2>
+            </div>
+            <Link
+              to="/services"
+              className="text-sm text-accent-gold hover:text-white transition underline underline-offset-4 decoration-accent-gold/70"
+            >
+              View full services menu
+            </Link>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <article
+                key={service.title}
+                className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-black/80 p-5 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="inline-flex items-center rounded-full border border-accent-gold/50 bg-black/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-accent-gold mb-4">
+                    {service.tag}
+                  </span>
+                  <h3 className="font-display text-lg mb-2 group-hover:text-accent-gold transition">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-gray-300">
+                    {service.description}
+                  </p>
+                </div>
+                <div className="mt-5 flex items-center justify-between text-xs text-gray-400">
+                  <span>By appointment only</span>
+                  <span className="text-accent-gold/80">Tap to book →</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery preview */}
+      <section className="border-y border-white/5 bg-gradient-to-b from-black via-neutral-950 to-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-accent-gold/80 mb-2">
+                Gallery
+              </p>
+              <h2 className="font-display text-2xl sm:text-3xl">
+                A glimpse of our work.
+              </h2>
+              <p className="text-sm text-gray-300 max-w-md mt-2">
+                Bridal transformations, party-ready looks, and everyday elegance — update
+                these tiles with your own photos.
+              </p>
+            </div>
+            <Link
+              to="/gallery"
+              className="text-sm text-accent-gold hover:text-white transition underline underline-offset-4 decoration-accent-gold/70"
+            >
+              View full gallery
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {galleryPreview.map((label) => (
+              <div
+                key={label}
+                className="relative h-32 sm:h-40 rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-t from-black via-neutral-900 to-accent-gold/20"
+              >
+                <div className="relative h-full w-full flex items-end p-3">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-gray-300">
+                      Look
+                    </p>
+                    <p className="font-display text-sm text-white">{label}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-display text-3xl font-bold text-gray-900 mb-4">Book on WhatsApp</h2>
-          <p className="text-gray-600 mb-6">Quick and easy — message us to confirm your slot.</p>
-          <a
-            href="https://wa.me/919876543210?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Manju's%20Makeover."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition"
-          >
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Chat on WhatsApp
-          </a>
+      {/* Booking CTA */}
+      <section className="bg-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-16">
+          <div className="rounded-3xl border border-accent-gold/40 bg-gradient-to-r from-accent-gold/15 via-black to-black px-6 py-8 sm:px-10 sm:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-accent-gold/80 mb-2">
+                Ready when you are
+              </p>
+              <h2 className="font-display text-2xl sm:text-3xl mb-2">
+                Reserve your slot at Manju&apos;s Makeover.
+              </h2>
+              <p className="text-sm text-gray-200 max-w-xl">
+                Share your date, time, and occasion details — we&apos;ll help you choose the
+                perfect look and finalise everything over call or WhatsApp.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <Link
+                to="/booking"
+                className="inline-flex items-center justify-center px-5 py-3 rounded-full bg-accent-gold text-black text-sm font-semibold shadow-[0_0_0_1px_rgba(201,169,98,0.4)] hover:brightness-110 transition w-full sm:w-auto"
+              >
+                Book online
+              </Link>
+              <a
+                href="https://wa.me/919876543210"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-5 py-3 rounded-full border border-accent-gold/60 text-accent-gold text-sm font-semibold hover:bg-white/5 transition w-full sm:w-auto"
+              >
+                Book on WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
