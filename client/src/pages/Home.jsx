@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 function Home() {
   const services = [
     {
-      title: 'Bridal Artistry',
+      title: 'Bridal Makeup',
       description:
         'Tailor-made bridal looks with flawless, photo-ready makeup and elegant styling for your big day.',
       tag: 'Bridal',
     },
     {
-      title: 'Occasion Glam',
+      title: 'Party Makeup',
       description:
         'Soft glam to full drama for sangeet, receptions, parties, and special evenings out.',
       tag: 'Party',
     },
     {
-      title: 'Hair & Skin Rituals',
+      title: 'Hair Styling',
       description:
         'Nourishing facials, indulgent hair spa, and treatments that leave you glowing.',
       tag: 'Care',
@@ -198,27 +198,31 @@ function Home() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <article
-                key={service.title}
-                className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-black/80 p-5 flex flex-col justify-between"
-              >
-                <div>
-                  <span className="inline-flex items-center rounded-full border border-accent-gold/50 bg-black/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-accent-gold mb-4">
-                    {service.tag}
-                  </span>
-                  <h3 className="font-display text-lg mb-2 group-hover:text-accent-gold transition">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-gray-300">
-                    {service.description}
-                  </p>
-                </div>
-                <div className="mt-5 flex items-center justify-between text-xs text-gray-400">
-                  <span>By appointment only</span>
-                  <span className="text-accent-gold/80">Tap to book →</span>
-                </div>
-              </article>
-            ))}
+              <Link key={service.title} to="/booking" state={{ selectedService: service.title }}>
+                <article
+                  className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-black/80 p-5 flex flex-col justify-between cursor-pointer transform transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.35)]"
+                >
+                  <div>
+                    <span className="inline-flex items-center rounded-full border border-accent-gold/50 bg-black/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-accent-gold mb-4">
+                      {service.tag}
+                    </span>
+
+                    <h3 className="font-display text-lg mb-2 group-hover:text-accent-gold transition">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-sm text-gray-300">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-5 flex items-center justify-between text-xs text-gray-400">
+                   <span>By appointment only</span>
+                   <span className="text-accent-gold/80">Tap to book →</span>
+                  </div>
+                </article>
+              </Link>
+              ))}
           </div>
         </div>
       </section>

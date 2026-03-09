@@ -26,7 +26,11 @@ function Layout({ children }) {
               className="group inline-flex items-center gap-3"
             >
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-accent-gold/25 to-accent-gold/5 ring-1 ring-accent-gold/30">
-                <span className="font-display text-accent-gold text-lg">M</span>
+                <img
+                  src="/favicon_manju_makeover.png"
+                  alt="Manju's Makeover"
+                  className="h-6 w-6 object-contain"
+                />
               </span>
               <span className="font-display text-lg sm:text-xl font-semibold text-white group-hover:text-accent-gold transition">
                 Manju&apos;s Makeover

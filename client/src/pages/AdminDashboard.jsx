@@ -13,7 +13,7 @@ function AdminDashboard() {
     try {
       setError('');
       const data = await api.getBookings();
-      setBookings(data || []);
+      setBookings((data || []).sort((a, b) => new Date(b.date) - new Date(a.date)));
     } catch (err) {
       setError(err.message || 'Failed to load bookings');
       setBookings([]);
@@ -56,6 +56,21 @@ function AdminDashboard() {
     return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
   };
 
+  const getStatusStyles = (status) => {
+    switch (status) {
+      case 'pending':
+        return 'bg-yellow-100 text-yellow-800';
+      case 'confirmed':
+        return 'bg-green-100 text-green-800';
+      case 'cancelled':
+        return 'bg-red-100 text-red-800';
+      case 'completed':
+        return 'bg-blue-100 text-blue-800';
+      default:
+        return 'bg-gray-100 text-gray-700';
+    }
+  };
+
   if (loading) {
     return (
       <div className="py-12 flex justify-center">
@@ -65,10 +80,10 @@ function AdminDashboard() {
   }
 
   return (
-    <div className="py-12 sm:py-16">
+    <div className="bg-black text-white py-12 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <h1 className="font-display text-3xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
-        <p className="text-gray-600 mb-8">View and manage appointment bookings.</p>
+        <h1 className="font-display text-3xl font-bold text-white mb-2">Admin Dashboard</h1>
+        <p className="text-gray-400 mb-8">View and manage appointment bookings.</p>
 
         {error && (
           <div className="mb-6 p-4 rounded-lg bg-red-50 text-red-800">{error}</div>
@@ -79,17 +94,17 @@ function AdminDashboard() {
             No bookings yet. Bookings will appear here when customers submit the form.
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-xl border border-gray-200">
+          <div className="overflow-x-auto rounded-xl border border-white/10 bg-black/40">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-black/60">
                 <tr>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Time</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Phone</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Service</th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                  <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Actions</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Date</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Time</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Customer</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Phone</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Service</th>
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">Status</th>
+                  <th className="px-4 py-3 text-right text-xs font-medium text-gray-400 uppercase">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -101,16 +116,30 @@ function AdminDashboard() {
                     <td className="px-4 py-3 text-sm text-gray-600">{b.phone}</td>
                     <td className="px-4 py-3 text-sm text-gray-600">{b.service}</td>
                     <td className="px-4 py-3">
-                      <select
-                        value={b.status}
-                        onChange={(e) => handleStatusChange(b._id, e.target.value)}
-                        disabled={updatingId === b._id}
-                        className="text-sm border border-gray-300 rounded px-2 py-1"
-                      >
-                        {STATUS_OPTIONS.map((s) => (
-                          <option key={s} value={s}>{s}</option>
-                        ))}
-                      </select>
+                      <div className="flex items-center gap-2">
+    
+                        <span
+                          className={`text-xs px-2 py-1 rounded-full font-medium ${getStatusStyles(
+                            b.status
+                          )}`}
+                        >
+                          {b.status}
+                        </span>
+
+                        <select
+                          value={b.status}
+                          onChange={(e) => handleStatusChange(b._id, e.target.value)}
+                          disabled={updatingId === b._id}
+                          className="text-sm border border-white/20 bg-black text-white rounded px-2 py-1"
+                        >
+                          {STATUS_OPTIONS.map((s) => (
+                            <option key={s} value={s}>
+                              {s}
+                            </option>
+                          ))}
+                        </select>
+
+                      </div>
                     </td>
                     <td className="px-4 py-3 text-right">
                       <button
@@ -129,7 +158,7 @@ function AdminDashboard() {
 
         <button
           onClick={fetchBookings}
-          className="mt-6 px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50"
+          className="mt-6 px-4 py-2 border border-accent-gold/60 rounded-lg text-sm font-medium text-accent-gold hover:bg-white/5 transition"
         >
           Refresh
         </button>

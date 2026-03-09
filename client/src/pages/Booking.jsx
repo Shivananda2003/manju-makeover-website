@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { api } from '../api/api';
 import { SERVICES, TIME_SLOTS, WHATSAPP_NUMBER } from '../constants/services';
 
 function Booking() {
+  const location = useLocation();
+  const selectedService = location.state?.selectedService || "";
   const [form, setForm] = useState({
     customerName: '',
     phone: '',
@@ -14,6 +17,14 @@ function Booking() {
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
+  useEffect(() => {
+    if (selectedService) {
+      setForm((prev) => ({
+        ...prev,
+        service: selectedService,
+      }));
+    }
+  }, [selectedService]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -122,9 +133,13 @@ function Booking() {
               onChange={handleChange}
               className="w-full px-4 py-2 rounded-lg border border-white/15 bg-black/40 text-white focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-accent-gold"
             >
-              <option value="">Select a service</option>
+              <option value="" className='text-black'>Select a service</option>
               {SERVICES.map((s) => (
-                <option key={s.id} value={s.name}>
+                <option
+                  key={s.id}
+                  value={s.name}
+                  className="bg-gold text-black hover:bg-accent-gold"
+                >
                   {s.name}
                 </option>
               ))}
