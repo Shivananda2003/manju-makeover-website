@@ -36,13 +36,19 @@ function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(201,169,98,0.35),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(201,169,98,0.12),_transparent_55%)]" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
-            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-accent-gold/80 mb-4">
+            <p className="text-s font-semibold tracking-[0.25em] uppercase text-accent-gold/80 mb-4">
               Luxury Beauty Studio
             </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight mb-5">
-              Manju&apos;s{' '}
-              <span className="text-accent-gold">Makeover</span>
-            </h1>
+            <div className="mb-5 flex justify-center sm:justify-start">
+              <img
+                src="/logo.png"
+                alt="Manju's Makeover"
+                className="w-72 sm:w-[22rem] lg:w-[30rem] max-w-full h-auto object-contain drop-shadow-[0_0_25px_rgba(201,169,98,0.35)]"
+              />
+              <h1 className="sr-only">
+                Manju&apos;s Makeover Luxury Beauty Parlour
+              </h1>
+            </div>
             <p className="text-sm sm:text-base text-gray-300 mb-8 max-w-xl">
               An intimate, luxury beauty parlour where every detail is curated for you —
               from bridal transformations to effortless everyday elegance.

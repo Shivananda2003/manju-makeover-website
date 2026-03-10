@@ -7,6 +7,8 @@ import Booking from './pages/Booking';
 import Contact from './pages/Contact';
 import AdminDashboard from './pages/AdminDashboard';
 
+const ADMIN_ROUTE = import.meta.env.VITE_ADMIN_ROUTE;
+
 function App() {
   return (
     <Layout>
@@ -16,7 +18,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path={ADMIN_ROUTE} element={<AdminDashboard />} />
       </Routes>
     </Layout>
   );

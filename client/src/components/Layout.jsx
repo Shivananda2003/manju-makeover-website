@@ -23,18 +23,17 @@ function Layout({ children }) {
             <NavLink
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="group inline-flex items-center gap-3"
+              className="group inline-flex items-center"
             >
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-accent-gold/25 to-accent-gold/5 ring-1 ring-accent-gold/30">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full 
+              bg-gradient-to-br from-accent-gold/25 to-accent-gold/5 ring-1 ring-accent-gold/30">
                 <img
                   src="/favicon_manju_makeover.png"
-                  alt="Manju's Makeover"
+                  alt="Manju's Makeover icon"
                   className="h-6 w-6 object-contain"
                 />
               </span>
-              <span className="font-display text-lg sm:text-xl font-semibold text-white group-hover:text-accent-gold transition">
-                Manju&apos;s Makeover
-              </span>
+              <span className="sr-only">Manju&apos;s Makeover</span>
             </NavLink>
 
             <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -163,12 +162,6 @@ function Layout({ children }) {
               <p className="text-sm text-gray-400">
                 Hours: 9:00 AM – 7:00 PM
               </p>
-              <NavLink
-                to="/admin"
-                className="inline-flex text-sm text-gray-400 hover:text-accent-gold transition"
-              >
-                Admin Dashboard
-              </NavLink>
             </div>
 
             <div className="space-y-3">
