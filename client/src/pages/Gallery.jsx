@@ -1,14 +1,4 @@
-const GALLERY_ITEMS = [
-  { id: 1, title: 'Bridal Look', category: 'bridal', placeholder: 'Bridal makeup and styling' },
-  { id: 2, title: 'Party Glam', category: 'party', placeholder: 'Party makeup' },
-  { id: 3, title: 'Hair Styling', category: 'hair', placeholder: 'Hair styling' },
-  { id: 4, title: 'Natural Look', category: 'makeup', placeholder: 'Natural makeup' },
-  { id: 5, title: 'Festival Ready', category: 'party', placeholder: 'Festival look' },
-  { id: 6, title: 'Elegant Updo', category: 'hair', placeholder: 'Updo hairstyle' },
-  { id: 7, title: 'Soft Glam', category: 'makeup', placeholder: 'Soft glam makeup' },
-  { id: 8, title: 'Mehendi Look', category: 'bridal', placeholder: 'Mehendi ceremony look' },
-  { id: 9, title: 'Nail Art', category: 'mani-pedi', placeholder: 'Nail art' },
-];
+import { GALLERY_ITEMS } from "../constants/gallery";
 
 function Gallery() {
   return (
@@ -27,19 +17,20 @@ function Gallery() {
               key={item.id}
               className="group relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-black via-neutral-900 to-accent-gold/25"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
-              <div className="relative h-full w-full flex flex-col items-center justify-end p-4">
-                <div className="mb-auto pt-6">
-                  <div className="mx-auto h-16 w-16 rounded-full bg-gradient-to-br from-accent-gold/40 to-accent-gold/10 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110">
-                    <span className="text-3xl">✨</span>
-                  </div>
-                </div>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+              <div className="relative h-full w-full flex flex-col justify-end p-4 text-shadow">
+                
                 <div className="w-full text-center">
                   <p className="text-[11px] uppercase tracking-[0.25em] text-accent-gold/80 mb-1">
                     {item.category}
                   </p>
                   <p className="font-display text-sm sm:text-base">{item.title}</p>
-                  <p className="text-[11px] text-gray-300 mt-1">{item.placeholder}</p>
+                  <p className="text-[11px] text-gray-200 mt-1">{item.placeholder}</p>
                 </div>
               </div>
               <div className="absolute inset-0 scale-100 group-hover:scale-110 transition-transform duration-500 origin-center pointer-events-none" />

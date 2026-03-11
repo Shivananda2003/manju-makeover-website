@@ -56,6 +56,18 @@ function AdminDashboard() {
     }
   };
 
+  const openWhatsApp = (booking) => {
+
+    const phone = booking.phone.replace(/\D/g, "");
+  
+    const message = `Hello ${booking.customerName}, your appointment for ${booking.service} on ${formatDate(booking.date)} at ${booking.timeSlot} has been confirmed by Manju's Makeover.`;
+  
+    const url = `https://wa.me/91${phone}?text=${encodeURIComponent(message)}`;
+  
+    window.open(url, "_blank");
+  
+  };
+
   const formatDate = (d) => {
     if (!d) return '—';
     const date = new Date(d);
@@ -162,13 +174,22 @@ function AdminDashboard() {
 
                       </div>
                     </td>
-                    <td className="px-4 py-3 text-right">
+                    <td className="px-4 py-3 text-right space-x-3">
+
+                      <button
+                        onClick={() => openWhatsApp(b)}
+                        className="text-green-600 hover:text-green-800 text-sm"
+                      >
+                        WhatsApp
+                      </button>
+                                            
                       <button
                         onClick={() => handleDelete(b._id)}
                         className="text-red-600 hover:text-red-800 text-sm"
                       >
                         Delete
                       </button>
+                                            
                     </td>
                   </tr>
                 ))}

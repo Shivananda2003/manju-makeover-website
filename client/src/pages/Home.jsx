@@ -23,10 +23,22 @@ function Home() {
   ];
 
   const galleryPreview = [
-    'Bridal glow',
-    'Soft glam',
-    'Elegant updo',
-    'Festive look',
+    {
+      label: "Bridal glow",
+      image: "/images/gallery/bridal/bridal-03.png"
+    },
+    {
+      label: "Soft glam",
+      image: "/images/gallery/party/party-02.png"
+    },
+    {
+      label: "Elegant look",
+      image: "/images/gallery/bridal/bridal-01.jpg"
+    },
+    {
+      label: "Festive look",
+      image: "/images/gallery/bridal/bridal-02.png"
+    }
   ];
 
   return (
@@ -37,11 +49,11 @@ function Home() {
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <p className="text-s font-semibold tracking-[0.25em] uppercase text-accent-gold/80 mb-4">
-              Luxury Beauty Studio
+              Luxury Beauty Parlour
             </p>
             <div className="mb-5 flex justify-center sm:justify-start">
               <img
-                src="/logo.png"
+                src="/images/hero/logo.png"
                 alt="Manju's Makeover"
                 className="w-72 sm:w-[22rem] lg:w-[30rem] max-w-full h-auto object-contain drop-shadow-[0_0_25px_rgba(201,169,98,0.35)]"
               />
@@ -83,18 +95,40 @@ function Home() {
             <div className="absolute -inset-8 bg-gradient-to-tr from-accent-gold/10 via-transparent to-accent-gold/5 rounded-3xl blur-2xl pointer-events-none" />
             <div className="relative grid grid-cols-2 gap-4 sm:gap-5">
               <div className="space-y-4 sm:space-y-5">
-                <div className="h-40 sm:h-48 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 flex items-end p-4">
+              <div className="relative h-40 sm:h-48 rounded-3xl overflow-hidden border border-white/10">
+
+                <img
+                  src="/images/services/bridal-makeup.jpg"
+                  alt="Bridal Makeup"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
+
+                <div className="absolute inset-0 bg-black/40"></div>
+
+                <div className="relative flex items-end h-full p-4">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
+                    <p className="text-xs uppercase tracking-[0.2em] text-gray-300">
                       Signature
                     </p>
-                    <p className="font-display text-lg">Bridal glow</p>
+                    <p className="font-display text-lg text-white">Bridal glow</p>
                   </div>
                 </div>
-                <div className="h-32 sm:h-40 rounded-3xl bg-gradient-to-br from-accent-gold/20 to-accent-gold/5 border border-accent-gold/30 flex items-end p-4">
-                  <p className="text-sm text-black font-medium">
-                    Curated luxury in every detail.
-                  </p>
+                </div>
+
+                <div className="h-32 sm:h-40 rounded-3xl bg-gradient-to-br from-accent-gold/20 to-accent-gold/5 border border-accent-gold/30 flex items-center justify-center">
+                <div className="text-center space-y-1">
+                    <p className="text-xs uppercase tracking-[0.25em] text-accent-gold/80">
+                      Since 2011
+                    </p>
+                    <p className="font-display text-2xl text-accent-gold">
+                      MM
+                    </p>
+                    <p className="text-[11px] text-gray-400">
+                      Manju&apos;s Makeover
+                    </p>
+                  </div>
+                  
+
                 </div>
               </div>
               <div className="space-y-4 sm:space-y-5 translate-y-6 sm:translate-y-10">
@@ -103,16 +137,18 @@ function Home() {
                     Soft glam, luminous skin, and polished hairstyles — crafted just for you.
                   </p>
                 </div>
-                <div className="h-40 sm:h-48 rounded-3xl bg-gradient-to-tr from-black to-neutral-900 border border-white/10 flex items-center justify-center">
-                  <div className="text-center space-y-1">
-                    <p className="text-xs uppercase tracking-[0.25em] text-accent-gold/80">
-                      Since
-                    </p>
-                    <p className="font-display text-2xl text-accent-gold">
-                      MM
-                    </p>
-                    <p className="text-[11px] text-gray-400">
-                      Manju&apos;s Makeover Studio
+                <div className="relative h-40 sm:h-48 rounded-3xl overflow-hidden border border-white/10">
+                  <img
+                    src="/images/hero/eye-makeup.png"
+                    alt="Makeup Detail"
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
+
+                  <div className="absolute inset-0 bg-black/40"></div>
+
+                  <div className="relative flex items-end h-full p-4">
+                    <p className="text-sm text-white font-medium">
+                      Curated luxury in every detail.
                     </p>
                   </div>
                 </div>
@@ -146,7 +182,7 @@ function Home() {
               </div>
               <div>
                 <p className="font-semibold text-accent-gold text-sm">Location</p>
-                <p>Update your studio address here.</p>
+                <p>Ananta Nagar 5th lane, Berhampur, Odisha</p>
               </div>
             </div>
           </div>
@@ -170,7 +206,7 @@ function Home() {
                 </p>
               </div>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/918895429300"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full px-4 py-2 bg-accent-gold text-black text-xs font-semibold hover:brightness-110 transition"
@@ -258,17 +294,23 @@ function Home() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {galleryPreview.map((label) => (
+            {galleryPreview.map((item) => (
               <div
-                key={label}
+                key={item.label}
                 className="relative h-32 sm:h-40 rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-t from-black via-neutral-900 to-accent-gold/20"
               >
+                <img
+                  src={item.image}
+                  alt={item.label}
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
                 <div className="relative h-full w-full flex items-end p-3">
                   <div>
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-gray-300">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-gray-200 drop-shadow">
                       Look
                     </p>
-                    <p className="font-display text-sm text-white">{label}</p>
+                    <p className="font-display text-sm text-white">{item.label}</p>
                   </div>
                 </div>
               </div>
@@ -301,7 +343,7 @@ function Home() {
                 Book online
               </Link>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/918895429300"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-5 py-3 rounded-full border border-accent-gold/60 text-accent-gold text-sm font-semibold hover:bg-white/5 transition w-full sm:w-auto"

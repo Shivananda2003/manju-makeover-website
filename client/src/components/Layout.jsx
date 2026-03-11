@@ -28,7 +28,7 @@ function Layout({ children }) {
               <span className="inline-flex h-9 w-9 items-center justify-center rounded-full 
               bg-gradient-to-br from-accent-gold/25 to-accent-gold/5 ring-1 ring-accent-gold/30">
                 <img
-                  src="/favicon_manju_makeover.png"
+                  src="/images/favicon/favicon_manju_makeover.png"
                   alt="Manju's Makeover icon"
                   className="h-6 w-6 object-contain"
                 />
@@ -131,7 +131,7 @@ function Layout({ children }) {
               </p>
               <div className="h-px w-20 bg-accent-gold/40" />
               <p className="text-sm text-gray-400">
-                Call: <a className="text-accent-gold hover:text-white transition" href="tel:+919876543210">+91 98765 43210</a>
+                Call: <a className="text-accent-gold hover:text-white transition" href="tel:+918895429300">+91 88954 29300</a>
               </p>
             </div>
 
@@ -156,11 +156,13 @@ function Layout({ children }) {
             <div className="space-y-3">
               <p className="font-display text-white">Visit</p>
               <p className="text-sm text-gray-400">
-                Address line (update in footer)<br />
-                City, State
+                Ananta Nagar 5th lane<br />
+                Berhampur, Odisha
               </p>
               <p className="text-sm text-gray-400">
-                Hours: 9:00 AM – 7:00 PM
+                Hours: <br/>
+                10:00 AM – 2:00 PM <br/>
+                5:00 PM – 9:00 PM
               </p>
             </div>
 
@@ -168,7 +170,7 @@ function Layout({ children }) {
               <p className="font-display text-white">Book</p>
               <p className="text-sm text-gray-400">Prefer WhatsApp? Confirm your appointment instantly.</p>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/918895429300"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 bg-accent-gold text-black font-medium hover:brightness-110 transition ring-1 ring-accent-gold/40"
@@ -183,9 +185,7 @@ function Layout({ children }) {
 
           <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-gray-500">© {new Date().getFullYear()} Manju&apos;s Makeover. All rights reserved.</p>
-            <p className="text-xs text-gray-500">
-              Designed with <span className="text-accent-gold">gold</span> accents on <span className="text-white">black</span>.
-            </p>
+
           </div>
         </div>
       </footer>

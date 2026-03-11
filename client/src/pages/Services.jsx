@@ -21,10 +21,8 @@ function Services() {
               className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-black/80   flex flex-col justify-between cursor-pointer transform transition duration-300  hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(212,175,55,0.35)] overflow-hidden"
             >
             <article className="h-full">
-              <div className="h-40 sm:h-44 bg-gradient-to-br from-accent-gold/25 via-black to-black flex items-center justify-center">
-                <span className="text-5xl opacity-70 group-hover:scale-110 transform transition-transform duration-300">
-                  ✨
-                </span>
+              <div className="h-72 overflow-hidden">
+                <img src={service.image} alt={service.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
               </div>
 
               <div className="p-6">

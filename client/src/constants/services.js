@@ -4,49 +4,49 @@ export const SERVICES = [
     name: 'Bridal Makeup',
     description: 'Complete bridal package with trial, makeup, and touch-ups for your special day.',
     price: 'On request',
-    duration: 'Full day',
-    image: '/images/services/bridal.jpg',
+    duration: '3-4 hours',
+    image: '/images/services/bridal-makeup.jpg',
   },
   {
     id: 'party',
     name: 'Party Makeup',
     description: 'Glamorous party looks for weddings, festivals, and celebrations.',
-    price: 'From ₹1,500',
+    price: 'From ₹2,000',
     duration: '1–2 hours',
-    image: '/images/services/party.jpg',
+    image: '/images/services/party-makeup.png',
   },
   {
     id: 'hair',
     name: 'Hair Styling',
     description: 'Blow-dry, styling, colouring, and treatments for healthy, beautiful hair.',
-    price: 'From ₹800',
+    price: 'From ₹300',
     duration: '1 hour',
-    image: '/images/services/hair.jpg',
+    image: '/images/services/hair-style.png',
   },
   {
     id: 'facial',
     name: 'Facials & Skin Care',
     description: 'Cleansing, rejuvenating facials and customised skin care treatments.',
-    price: 'From ₹1,200',
+    price: 'From ₹500',
     duration: '1 hour',
-    image: '/images/services/facial.jpg',
+    image: '/images/services/facial.png',
   },
   {
     id: 'threading',
-    name: 'Threading & Waxing',
-    description: 'Precision threading and smooth waxing for clean, defined brows and skin.',
-    price: 'From ₹100',
-    duration: '30 min',
-    image: '/images/services/threading.jpg',
+    name: 'Threading',
+    description: 'Precision threading for clean, defined brows.',
+    price: 'From ₹40',
+    duration: '10 min',
+    image: '/images/services/threading.png',
   },
   {
-    id: 'mani-pedi',
-    name: 'Manicure & Pedicure',
-    description: 'Nail care, polish, and nail art for hands and feet.',
-    price: 'From ₹400',
-    duration: '1 hour',
-    image: '/images/services/mani-pedi.jpg',
-  },
+    id: 'hair-cutting',
+    name: 'Haircut',
+    description: 'Transform your look with stylish, face-framing haircuts tailored to your personality and hair type.',
+    price: 'From ₹150',
+    duration: '10 min',
+    image: '/images/services/haircut.png',
+  }
 ];
 
 export const TIME_SLOTS = [
@@ -55,4 +55,4 @@ export const TIME_SLOTS = [
   '04:00 PM', '04:30 PM', '05:00 PM', '05:30 PM', '06:00 PM', '06:30 PM',
 ];
 
-export const WHATSAPP_NUMBER = '919876543210';
+export const WHATSAPP_NUMBER = '918895429300';
