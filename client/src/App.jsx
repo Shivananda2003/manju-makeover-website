@@ -6,8 +6,10 @@ import Gallery from './pages/Gallery';
 import Booking from './pages/Booking';
 import Contact from './pages/Contact';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminLogin from './pages/AdminLogin';
+import AdminRoute from './components/AdminRoute';
 
-const ADMIN_ROUTE = import.meta.env.VITE_ADMIN_ROUTE;
+import { ADMIN_ROUTE } from "./config/routes";
 
 function App() {
   return (
@@ -18,7 +20,15 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path={ADMIN_ROUTE} element={<AdminDashboard />} />
+        <Route path="/manju-admin-login" element={<AdminLogin />} />
+        <Route
+          path={ADMIN_ROUTE}
+          element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          }
+        />
       </Routes>
     </Layout>
   );

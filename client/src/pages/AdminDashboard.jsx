@@ -4,6 +4,12 @@ import { api } from '../api/api';
 const STATUS_OPTIONS = ['pending', 'confirmed', 'cancelled', 'completed'];
 
 function AdminDashboard() {
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("adminAuth");
+    window.location.href = "/";
+  };
+
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -82,8 +88,23 @@ function AdminDashboard() {
   return (
     <div className="bg-black text-white py-12 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <h1 className="font-display text-3xl font-bold text-white mb-2">Admin Dashboard</h1>
-        <p className="text-gray-400 mb-8">View and manage appointment bookings.</p>
+        <div className="flex justify-between items-start mb-8">
+          <div>
+            <h1 className="font-display text-3xl font-bold text-white mb-2">
+              Admin Dashboard
+            </h1>
+            <p className="text-gray-400">
+              View and manage appointment bookings.
+            </p>
+          </div>
+
+          <button
+            onClick={handleLogout}
+            className="px-4 py-2 text-sm font-medium bg-accent-gold text-black rounded-lg hover:brightness-110 transition"
+          >
+            Logout
+          </button>
+        </div>
 
         {error && (
           <div className="mb-6 p-4 rounded-lg bg-red-50 text-red-800">{error}</div>
