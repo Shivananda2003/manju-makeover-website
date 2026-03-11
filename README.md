@@ -70,7 +70,7 @@ Starts server and client together (requires `concurrently` from root `npm instal
 
 Update the business number in:
 
-- `client/src/constants/services.js` → `WHATSAPP_NUMBER` (e.g. `919876543210` for +91 98765 43210)
+- `client/src/constants/services.js` → `WHATSAPP_NUMBER`
 - Footer and Contact page use the same number via this constant.
 
 ## Project structure
